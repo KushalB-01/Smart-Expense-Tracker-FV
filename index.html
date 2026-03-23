@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Expense Tracker</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div id="bg" class="background"></div>
+
+<div class="toggle-container">
+    <button id="toggle-theme">🌙</button>
+    <button id="toggle-gojo">🌀</button>
+</div>
+
+<!-- Modal -->
+<div id="welcome-modal" class="modal">
+    <div class="modal-content">
+        <h2>Welcome 👋</h2>
+        <p>Set your monthly budget</p>
+        <input type="number" id="budget-input" placeholder="Enter budget ₹">
+        <button id="budget-submit">Start</button>
+    </div>
+</div>
+
+<div class="container">
+
+<h1>Smart Expense Tracker</h1>
+
+<div class="budget-info">
+    <p>Budget: ₹<span id="budget-display">0</span></p>
+    <p>Spent: ₹<span id="spent-display">0</span></p>
+    <p>Remaining: ₹<span id="remaining-display">0</span></p>
+
+    <div class="progress-bar">
+        <div id="progress-fill"></div>
+    </div>
+
+    <button id="reset-budget">Change Budget</button>
+</div>
+
+<form id="expense-form">
+    <input type="text" id="description" placeholder="Description" required>
+    <input type="number" id="amount" placeholder="Amount" required>
+
+    <select id="category" required>
+    <option value="">Select Category</option>
+    <option value="Food">🍔 Food</option>
+    <option value="Travel">✈️ Travel</option>
+    <option value="Shopping">🛍️ Shopping</option>
+    <option value="Bills">💡 Bills</option>
+    <option value="Others">🔖 Others</option>
+</select>
+
+    <input type="date" id="date" required>
+    <button type="submit">Add Expense</button>
+</form>
+
+<select id="filter-category">
+    <option value="All">All</option>
+    <option value="Food">🍔 Food</option>
+    <option value="Travel">✈️ Travel</option>
+    <option value="Shopping">🛍️ Shopping</option>
+    <option value="Bills">💡 Bills</option>
+    <option value="Others">🔖 Others</option>
+</select>
+
+<div class="table-scroll">
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Amount(₹)</th>
+<th>Category</th>
+<th>Date</th>
+<th></th>
+</tr>
+</thead>
+<tbody id="expense-table-body"></tbody>
+</table>
+</div>
+
+<h3>Total: ₹<span id="total-amount">0</span></h3>
+
+<div class="chart-container">
+<canvas id="budgetChart"></canvas>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
